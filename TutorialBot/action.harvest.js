@@ -6,9 +6,9 @@ var actionHarvest = {
             var sources = creep.room.find(FIND_SOURCES);
             var goals = []
 
-            for (source in sources) {
+            for (var source in sources) {
                 // Try harvesting from each source
-                if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+                if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
                     goals.push(source.pos);
                 } else {
                     return true;
