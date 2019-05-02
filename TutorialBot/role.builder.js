@@ -16,6 +16,7 @@ var roleBuilder = {
 	    }
 
 	    if(creep.memory.building) {
+			// Build
 	        if (!actionBuild.build(creep)) {
 				// If cannot build, get out of the way
 				var targets = creep.room.find(FIND_MY_SPAWNS);
