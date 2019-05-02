@@ -12,16 +12,16 @@ var actionBuild = {
             }
             if (result == ERR_NOT_IN_RANGE) {
                 // move closer
-                creep.moveTo(closestConstruction, {
+                result = creep.moveTo(closestConstruction, {
                     visualizePathStyle: {
                         stroke: '#ffffff'
                     }
                 });
-                if (result != OK) {
-                    // could not move
-                    return false;
+                if (result == OK) {
+                    return true;
                 }
-                return true;
+                // could not move
+                return false;
             }
             // failed to build
             return false;

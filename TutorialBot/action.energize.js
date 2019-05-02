@@ -18,16 +18,16 @@ var actionEnergize = {
             }
             if (result == ERR_NOT_IN_RANGE) {
                 // move closer
-                creep.moveTo(closestNeedingEnergy, {
+                result = creep.moveTo(closestNeedingEnergy, {
                     visualizePathStyle: {
                         stroke: '#ffffff'
                     }
                 });
-                if (result != OK) {
-                    // could not move
-                    return false;
+                if (result == OK) {
+                    return true;
                 }
-                return true;
+                // could not move
+                return false;
             }
             // failed to transfer
             return false;

@@ -12,16 +12,16 @@ var actionHarvest = {
             }
             if (result == ERR_NOT_IN_RANGE) {
                 // move closer
-                creep.moveTo(closestSource, {
+                result = creep.moveTo(closestSource, {
                     visualizePathStyle: {
                         stroke: '#ffaa00'
                     }
                 });
-                if (result != OK) {
-                    // could not move
-                    return false;
+                if (result == OK) {
+                    return true;
                 }
-                return true;
+                // could not move
+                return false;
             }
             // failed to harvest
             return false;
