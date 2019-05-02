@@ -11,16 +11,16 @@ var actionUpgrade = {
             }
             if (result == ERR_NOT_IN_RANGE) {
                 // move closer
-                creep.moveTo(creep.room.controller, {
+                result = creep.moveTo(creep.room.controller, {
                     visualizePathStyle: {
                         stroke: '#ffffff'
                     }
                 });
-                if (result != OK) {
-                    // could not move
-                    return false;
+                if (result == OK) {
+                    return true;
                 }
-                return true;
+                // could not move
+                return false;
             }
             // failed to upgrade
             return false;
