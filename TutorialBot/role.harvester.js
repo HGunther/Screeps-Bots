@@ -12,6 +12,7 @@ var roleHarvester = {
             return;
         } else {
             if (actionEnergize.energize(creep)) {
+                creep.say("Can't transfer");
                 return;
             }
             //if primary objective cannot be completed, do something else

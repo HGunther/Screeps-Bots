@@ -19,6 +19,7 @@ var roleUpgrader = {
 
         if (creep.memory.upgrading) {
             if (actionUpgrade.upgrade(creep)) {
+                creep.say("Can't upgrade");
                 return;
             }
             //if primary objective cannot be completed, do something else

@@ -20,6 +20,7 @@ var roleBuilder = {
 		if (creep.memory.building) {
 			// Build
 			if (actionBuild.build(creep)) {
+				creep.say("Can't build");
 				return;
 			}
 			//if primary objective cannot be completed, do something else
