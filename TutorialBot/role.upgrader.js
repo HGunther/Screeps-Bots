@@ -1,4 +1,5 @@
 var actionHarvest = require('action.harvest');
+var actionUpgrade = require('action.upgrade');
 
 var roleUpgrader = {
 
@@ -15,9 +16,7 @@ var roleUpgrader = {
 	    }
 
 	    if(creep.memory.upgrading) {
-            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
-            }
+            actionUpgrade.upgrade(creep);
         }
         else {
             actionHarvest.harvest(creep);
