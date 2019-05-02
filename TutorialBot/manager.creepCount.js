@@ -14,8 +14,8 @@ var manageCreepCount = {
         for(var role in creeps_desired){
             var count = (_.filter(Game.creeps, (creep) => creep.memory.role == role)).length;
             if(count < creeps_desired[role]){
-                var newCreepName = utils.makeId();
                 var newCreepRole = role;
+                var newCreepName = utils.makeId(newCreepRole);
                 
                 Game.spawns[globals.spawnName].spawnCreep([WORK, CARRY, MOVE], newCreepName, {memory: {role: newCreepRole}});
             }
