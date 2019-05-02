@@ -14,7 +14,7 @@ var actionBuild = {
                 // move closer
                 creep.moveTo(closestConstruction, {
                     visualizePathStyle: {
-                        stroke: '#ffaa00'
+                        stroke: '#ffffff'
                     }
                 });
                 if (result != OK) {
