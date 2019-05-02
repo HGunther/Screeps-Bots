@@ -1,3 +1,5 @@
+var actionBuild = require('action.build');
+var actionEnergize = require('action.energize');
 var actionHarvest = require('action.harvest');
 var actionUpgrade = require('action.upgrade');
 
@@ -16,7 +18,19 @@ var roleUpgrader = {
 	    }
 
 	    if(creep.memory.upgrading) {
-            actionUpgrade.upgrade(creep);
+            var result = actionUpgrade.upgrade(creep);
+            if(!result){
+                // do something else
+                if(!actionBuild.build(creep)){
+                    if(!actionEnergize.energize(creep)){
+                        // just get out of the way
+                        var targets = creep.room.find(FIND_MY_SPAWNS);
+						if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+							creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+						}
+                    }
+                }
+            }
         }
         else {
             actionHarvest.harvest(creep);
