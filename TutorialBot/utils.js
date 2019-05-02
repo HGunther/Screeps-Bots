@@ -3,3 +3,5 @@ var utils = {
         return Math.random();
         }
 }
+
+module.exports = utils;
