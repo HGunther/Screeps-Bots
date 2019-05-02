@@ -12,12 +12,15 @@ var actionHarvest = {
             }
             if (result == ERR_NOT_IN_RANGE) {
                 // move closer
-                var pathToClosest = PathFinder.search(creep.pos, closestSource);
-                creep.moveByPath(pathToClosest, {
+                creep.moveTo(closestSource, {
                     visualizePathStyle: {
                         stroke: '#ffaa00'
                     }
                 });
+                if (result != OK) {
+                    // could not move
+                    return false;
+                }
                 return true;
             }
             // failed to harvest
