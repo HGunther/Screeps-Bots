@@ -1,6 +1,6 @@
 var utils = {
-    makeId: function(){
-        return Math.random().toString().slice(2, end);
+    makeId: function(baseName = ""){
+        return baseName + Math.random().toString().slice(2, end);
         }
 }
 
