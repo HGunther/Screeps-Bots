@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "screeps-typed": "github:wmulligan/screeps-typed#master"
+  }
+}

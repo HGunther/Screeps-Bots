@@ -1,0 +1,9 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/wmulligan/screeps-typed/master/typings.json",
+    "raw": "github:wmulligan/screeps-typed#master",
+    "main": "dist/screeps-typed.d.ts",
+    "name": "screeps-typed"
+  }
+}
