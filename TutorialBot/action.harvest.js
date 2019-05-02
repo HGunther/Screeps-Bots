@@ -4,7 +4,7 @@ var actionHarvest = {
     harvest: function (creep) {
         if (creep.carry.energy < creep.carryCapacity) {
             // Try to harvest from the closest
-            var closestSource = creep.pos.findClosestByPath(FIND_SOURCES);
+            var closestSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             var result = creep.harvest(closestSource);
             if (result == OK) {
                 // success!
