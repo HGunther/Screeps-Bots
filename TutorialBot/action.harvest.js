@@ -3,27 +3,29 @@ var actionHarvest = {
     /** @param {Creep} creep **/
     harvest: function (creep) {
         if (creep.carry.energy < creep.carryCapacity) {
-            var sources = creep.room.find(FIND_SOURCES);
-            var goals = []
-
-            for (var source in sources) {
-                // Try harvesting from each source
-                if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                    goals.push(source.pos);
-                } else {
-                    return true;
-                }
+            // Try to harvest from the closest
+            var closestSource = creep.pos.findClosestByPath(FIND_SOURCES);
+            var result = creep.harvest(closestSource);
+            if (result == OK) {
+                // success!
+                return true;
             }
-            // If all out of range, find closest and move towards it
-            var path = PathFinder.search(creep.pos, goals);
-            creep.moveByPath(path, {
-                visualizePathStyle: {
-                    stroke: '#ffaa00'
-                }
-            });
-            return true;
+            if (result == ERR_NOT_IN_RANGE) {
+                // move closer
+                var pathToClosest = PathFinder.search(creep.pos, goals);
+                creep.moveByPath(pathToClosest, {
+                    visualizePathStyle: {
+                        stroke: '#ffaa00'
+                    }
+                });
+                return true;
+            }
+            // failed to harvest
+            return false;
         }
+        // already full
         return false;
+
     }
 };
 
