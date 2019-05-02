@@ -17,7 +17,7 @@ var actionBuild = {
                         stroke: '#ffffff'
                     }
                 });
-                if (result == OK) {
+                if (result == OK || result == ERR_TIRED) {
                     return true;
                 }
                 // could not move
