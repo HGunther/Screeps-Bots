@@ -29,7 +29,6 @@ var actionRepair = {
                 // success!
                 return true;
             }
-            creep.say(result);
             if (result == ERR_NOT_IN_RANGE) {
                 // move closer
                 result = creep.moveTo(structureToRepair, {
