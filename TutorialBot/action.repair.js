@@ -23,7 +23,8 @@ var actionRepair = {
             }
             // Repair the lowest health
             targets.sort((a, b) => a.hits - b.hits);
-            var result = creep.repair(targets[0]);
+            var structureToRepair = targets[0];
+            var result = creep.repair(structureToRepair);
             if (result == OK) {
                 // success!
                 return true;
@@ -31,7 +32,7 @@ var actionRepair = {
             creep.say(result);
             if (result == ERR_NOT_IN_RANGE) {
                 // move closer
-                result = creep.moveTo(closestToRepair, {
+                result = creep.moveTo(structureToRepair, {
                     visualizePathStyle: {
                         stroke: '#ffffff'
                     }
