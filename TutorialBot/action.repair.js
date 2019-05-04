@@ -9,7 +9,6 @@ var actionRepair = {
                 }
             });
             // Try to repair the closest
-            // var closestToRepair = creep.pos.findClosestByPath(targets);
             if (targets.length < 1) {
                 // Finds roads and walls
                 targets = creep.room.find(FIND_STRUCTURES, {
@@ -21,17 +20,6 @@ var actionRepair = {
                     // nothing to repair
                     return false;
                 }
-            }
-            targets = creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.hits < structure.hitsMax);
-                }
-            });
-            // Try to repair the closest
-            // var closestToRepair = creep.pos.findClosestByPath(targets);
-            if (targets.length < 1) {
-                // Nothing to repair
-                return false;
             }
             // Repair the lowest health
             targets.sort((a, b) => a.hits - b.hits);
