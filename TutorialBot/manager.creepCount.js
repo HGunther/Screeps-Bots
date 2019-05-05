@@ -6,9 +6,9 @@ var manageCreepCount = {
     manage: function() {
         // if(Game.resources.)
         var creeps_desired = {
-            builder: 10,
+            builder: 3,
             harvester: 2,
-            repairer: 3,
+            repairer: 10,
             upgrader: 3
         };
         
