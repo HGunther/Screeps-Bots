@@ -4,6 +4,7 @@ var utils = require('utils');
 var manageCreepCount = {
 
     manage: function () {
+        
         // if(Game.resources.)
         var creep_queue = [{
                 role: "harvester",
@@ -31,10 +32,10 @@ var manageCreepCount = {
             }
         ];
 
-        for (var creep in creep_queue) {
-            var role = creep["role"];
+        creep_queue.forEach(function(order) {
+            var role = order["role"];
             var count = (_.filter(Game.creeps, (creep) => creep.memory.role == role)).length;
-            if (count < creep["number"]) {
+            if (count < order["number"]) {
                 var newCreepRole = role;
                 var newCreepName = utils.makeId(newCreepRole);
 
@@ -45,7 +46,8 @@ var manageCreepCount = {
                 });
                 return;
             }
-        }
+        });
+        
     }
 
 };
