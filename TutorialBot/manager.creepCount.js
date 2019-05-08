@@ -32,7 +32,8 @@ var manageCreepCount = {
             }
         ];
 
-        creep_queue.forEach(function(order) {
+        for (var i in creep_queue){
+            var order = creep_queue[i];
             var role = order["role"];
             var count = (_.filter(Game.creeps, (creep) => creep.memory.role == role)).length;
             if (count < order["number"]) {
@@ -46,7 +47,7 @@ var manageCreepCount = {
                 });
                 return;
             }
-        });
+        }
         
     }
 
